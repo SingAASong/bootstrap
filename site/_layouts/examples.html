@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"{% if page.html_class %} class="{{ page.html_class }}"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="{{ site.authors }}">
+    <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+    <title>{{ page.title | smartify }} · {{ site.title | smartify }}</title>
+
+    {% include stylesheet.html %}
+
+    {%- for css in page.extra_css %}
+    <!-- Custom styles for this template -->
+    <link href="{{ css }}" rel="stylesheet">
+    {%- endfor %}
+  </head>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+    {{ content }}
+
+    {%- if page.include_js != false -%}
+    {% include scripts.html %}
+    {%- endif -%}
+
+    {%- for js in page.extra_js %}
+    <script src="{{ js }}"></script>
+    {%- endfor %}
+  </body>
+</html>
